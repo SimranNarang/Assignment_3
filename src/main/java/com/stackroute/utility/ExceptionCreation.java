@@ -1,28 +1,34 @@
 package com.stackroute.utility;
 
 public class ExceptionCreation {
-	public void firstException() {
-		/*try {
-		*/	throw new NegativeArraySizeException("Error one"); 
-		/*}catch(NegativeArraySizeException error) {
-			System.out.println(error.getMessage());
-		}*/
+	public String firstException() {
+		try {
+			int a[]= new int[-20]; 
+		}catch(NegativeArraySizeException error) {
+			System.out.println(error.toString());
+			return error.getClass().getName();
+		}
+		return null;
 	}
 	
-	public void secondException() {
-		/*try {
-		*/	throw new IndexOutOfBoundsException("Error two"); 
-		/*}catch(IndexOutOfBoundsException error) {
-			System.out.println(error.getMessage());
-		}*/
+	public String secondException() {
+		try {
+			int a[] = new int[5];
+			a[6]=10;
+		}catch(IndexOutOfBoundsException error) {
+			return error.getClass().getName();
+		}
+		return null;
 	}
 	
-	public void thirdException() {
-		/*try {
-		*/	throw new NullPointerException("Error three"); 
-		/*}catch(NullPointerException error) {
-			System.out.println(error.getMessage());
-		}*/
+	public String thirdException() {
+		try {
+			String str = null;
+			str.length();
+		}catch(NullPointerException error) {
+			return error.getClass().getName();
+		}
+		return null;
 	}
 
 }
